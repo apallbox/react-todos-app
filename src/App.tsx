@@ -1,15 +1,15 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import Dummy from './Dummy';
+import { TodosList } from './features/todos/components/TodoList';
 
 function App() {
   return (
     <>
       <h1>
-        Hellos
+        Todo
       </h1>
-      <Dummy />
+      <TodosList />
     </>
   );
 }
