@@ -32,6 +32,7 @@ export default function TodoForm() {
           className="todo-form__text"
           value={text}
           onChange={onTextChanged}
+          autoFocus={true}
         >
         </textarea>
       </div>
