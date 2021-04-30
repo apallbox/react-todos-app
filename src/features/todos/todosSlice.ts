@@ -1,23 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Todo, TodoStatus } from './models';
 
-const initialState: Todo[] = [
-  {
-    id: '1',
-    text: 'First Todo!',
-    status: TodoStatus.None,
-  },
-  {
-    id: '2',
-    text: 'Second Todo!',
-    status: TodoStatus.Done,
-  },
-  {
-    id: '3',
-    text: 'Third Todo!',
-    status: TodoStatus.Cancelled,
-  },
-];
+import { Todo } from './models';
+
+const initialState: Todo[] = [];
 
 const todosSlice = createSlice({
   name: 'todos',
