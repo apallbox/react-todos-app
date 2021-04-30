@@ -1,3 +1,5 @@
+import './index.css';
+
 import React from 'react';
 import { Todo } from '../../models';
 
@@ -5,10 +7,12 @@ interface TodoItemProps {
   todo: Todo;
 }
 
-export const TodoItem = (props: TodoItemProps) => {
+export default function TodoItem(props: TodoItemProps) {
   return (
     <div className="todo-item">
-      {props.todo.text}
+      <div className="todo-item__text">
+        {props.todo.text}
+      </div>
     </div>
   );
 }

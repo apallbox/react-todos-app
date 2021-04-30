@@ -1,0 +1,6 @@
+.todo-item {
+
+  &__text {
+    white-space: pre-wrap;
+  }
+}
