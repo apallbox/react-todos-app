@@ -27,13 +27,16 @@ export default function TodoItem(props: TodoItemProps) {
     <div className="todo-item">
       <div className="todo-item__status">
         <input
+          id={props.todo.id}
           type="checkbox"
           checked={props.todo.status === TodoStatus.Done}
           onClick={onStatusClicked}
         />
       </div>
       <div className="todo-item__text">
-        {props.todo.text}
+        <label htmlFor={props.todo.id}>
+          {props.todo.text}
+        </label>
       </div>
     </div>
   );
