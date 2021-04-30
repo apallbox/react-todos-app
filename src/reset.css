@@ -177,6 +177,7 @@ a {
   text-decoration: none;
 }
 
+input[type=submit],
 button {
   display: inline-block;
   vertical-align: top;
@@ -186,6 +187,12 @@ button {
   text-decoration: none;
 }
 
+input[type=submit]:disabled,
 button:disabled {
   cursor: default;
+}
+
+textarea {
+  display: block;
+  width: 100%;
 }

@@ -1,0 +1,27 @@
+.app {
+  padding: 40px;
+  font-size: 16px;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  &__header {
+
+  }
+
+  &__logo {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__main {
+
+  }
+
+  &__footer {
+
+  }
+}
