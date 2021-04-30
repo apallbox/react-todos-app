@@ -5,17 +5,17 @@ const initialState: Todo[] = [
   {
     id: '1',
     text: 'First Todo!',
-    checked: TodoStatus.None,
+    status: TodoStatus.None,
   },
   {
     id: '2',
     text: 'Second Todo!',
-    checked: TodoStatus.Done,
+    status: TodoStatus.Done,
   },
   {
     id: '3',
     text: 'Third Todo!',
-    checked: TodoStatus.Cancelled,
+    status: TodoStatus.Cancelled,
   },
 ];
 
@@ -27,11 +27,11 @@ const todosSlice = createSlice({
       state.push(action.payload)
     },
     todoUpdated(state, action: PayloadAction<Todo>) {
-      const { id, text, checked } = action.payload;
+      const { id, text, status } = action.payload;
       const existingTodo = state.find((todo) => todo.id === id);
       if (existingTodo) {
         existingTodo.text = text;
-        existingTodo.checked = checked;
+        existingTodo.status = status;
       }
     },
   },
