@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Todo } from './models';
+import { Todo } from './entities';
 
 const initialState: Todo[] = [];
 

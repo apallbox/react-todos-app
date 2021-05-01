@@ -4,7 +4,7 @@ import React, { ChangeEvent, MouseEvent, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
-import { TodoStatus } from '../../models';
+import { TodoStatus } from '../../entities';
 import { todoAdded } from '../../todosSlice';
 
 export default function TodoForm() {

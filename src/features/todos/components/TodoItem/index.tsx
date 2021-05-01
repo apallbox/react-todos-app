@@ -2,7 +2,7 @@ import './index.css';
 
 import React, { MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { Todo, TodoStatus } from '../../models';
+import { Todo, TodoStatus } from '../../entities';
 import { todoUpdated } from '../../todosSlice';
 
 interface TodoItemProps {
