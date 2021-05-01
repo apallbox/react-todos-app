@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 
-import { Todo } from './entities';
+import { Todo, TodoStatus } from './entities';
 import { TodoInteractor } from './interactors';
 
 const initialState: Todo[] = [];
@@ -9,8 +9,20 @@ const todosSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    todoAdded(state, action: PayloadAction<Todo>) {
-      state.push(action.payload)
+    todoAdded: {
+      prepare: (text: string) => {
+        const id = nanoid();
+        return {
+          payload: {
+            id,
+            text,
+            status: TodoStatus.New,
+          },
+        };
+      },
+      reducer: (state, action: PayloadAction<Todo>) => {
+        state.push(action.payload)
+      },
     },
     todoUpdated(state, action: PayloadAction<Todo>) {
       const { id, text, status } = action.payload;

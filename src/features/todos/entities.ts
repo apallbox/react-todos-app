@@ -1,5 +1,3 @@
-import { nanoid } from '@reduxjs/toolkit';
-
 export enum TodoStatus {
   New,
   Done,
