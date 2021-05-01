@@ -1,6 +1,8 @@
 # react-todos-app
 
-Empty project
+WIP
+
+Latest release preview: https://apallbox.github.io/react-todos-app/
 
 ## Building and running on localhost
 
