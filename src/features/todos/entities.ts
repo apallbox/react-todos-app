@@ -1,5 +1,5 @@
 export enum TodoStatus {
-  None,
+  New,
   Done,
   Cancelled,
 }
