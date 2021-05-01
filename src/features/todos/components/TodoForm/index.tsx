@@ -19,7 +19,7 @@ export default function TodoForm() {
     const todo = {
       id: nanoid(),
       text: text,
-      status: TodoStatus.None,
+      status: TodoStatus.New,
     };
     dispatch(todoAdded(todo));
     setText('');

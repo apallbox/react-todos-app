@@ -36,7 +36,7 @@ const todosSlice = createSlice({
       if (!existingTodo) { return; }
 
       const interactor = new TodoInteractor(existingTodo);
-      interactor.markNone();
+      interactor.markNew();
     },
     todoMarkedDone(state, action: PayloadAction<string>) {
       const id = action.payload;

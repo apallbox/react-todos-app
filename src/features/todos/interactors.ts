@@ -3,8 +3,8 @@ import { Todo, TodoStatus } from './entities';
 export class TodoInteractor<T extends Todo> {
   constructor(public todo: T) {}
 
-  markNone() {
-    this.todo.status = TodoStatus.None;
+  markNew() {
+    this.todo.status = TodoStatus.New;
   }
 
   markDone() {
@@ -16,11 +16,11 @@ export class TodoInteractor<T extends Todo> {
   }
 
   toggleDone() {
-    this.isDone ? this.markNone() : this.markDone();
+    this.isDone ? this.markNew() : this.markDone();
   }
 
-  get isNone() {
-    return this.todo.status === TodoStatus.None;
+  get isNew() {
+    return this.todo.status === TodoStatus.New;
   }
 
   get isDone() {
