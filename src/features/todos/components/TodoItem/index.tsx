@@ -1,26 +1,22 @@
 import './index.css';
 
-import React, { MouseEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { Todo, TodoStatus } from '../../models';
-import { todoUpdated } from '../../todosSlice';
+import { Todo, TodoStatus } from '../../entities';
+import { todoToggledDone, todoUpdated } from '../../todosSlice';
+import { TodoInteractor } from '../../interactors';
 
 interface TodoItemProps {
   todo: Todo;
 }
 
 export default function TodoItem(props: TodoItemProps) {
+  const todoInteractor = new TodoInteractor(props.todo);
+
   const dispatch = useDispatch();
 
-  const onStatusClicked = (event: MouseEvent) => {
-    const todo = {
-      id: props.todo.id,
-      text: props.todo.text,
-      status: props.todo.status === TodoStatus.Done
-        ? TodoStatus.None
-        : TodoStatus.Done,
-    };
-    dispatch(todoUpdated(todo));
+  const onStatusChanged = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(todoToggledDone(props.todo.id));
   };
 
   return (
@@ -29,8 +25,8 @@ export default function TodoItem(props: TodoItemProps) {
         <input
           id={props.todo.id}
           type="checkbox"
-          checked={props.todo.status === TodoStatus.Done}
-          onClick={onStatusClicked}
+          checked={todoInteractor.isDone}
+          onChange={onStatusChanged}
         />
       </div>
       <div className="todo-item__text">
