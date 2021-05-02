@@ -230,6 +230,11 @@ textarea {
 
   }
 
+.todo-counter {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
 .todo-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -276,6 +281,14 @@ textarea {
   gap: 10px;
 }
 
+  .todo-item--cancelled {
+    opacity: 0.25;
+  }
+
+  .todo-item--cancelled .todo-item__text {
+      text-decoration: line-through;
+    }
+
   .todo-item__status {
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
@@ -289,5 +302,20 @@ textarea {
     -ms-flex-negative: 0;
         flex-shrink: 0;
     white-space: pre-wrap;
+  }
+
+  .todo-item__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+  }
+
+  .todo-item__action {
+
   }
 
