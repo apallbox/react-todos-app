@@ -13,8 +13,6 @@ interface TodoItemProps {
 }
 
 export default function TodoItem(props: TodoItemProps) {
-  const todoInteractor = new TodoInteractor(props.todo);
-
   const dispatch = useDispatch();
 
   const onStatusChanged = (event: ChangeEvent<HTMLInputElement>) => {
@@ -35,13 +33,13 @@ export default function TodoItem(props: TodoItemProps) {
   return (
     <div className={classNames({
       'todo-item': true,
-      'todo-item--cancelled': todoInteractor.isCancelled,
+      'todo-item--cancelled': TodoInteractor.isCancelled(props.todo),
     })}>
       <div className="todo-item__status">
         <input
           id={props.todo.id}
           type="checkbox"
-          checked={todoInteractor.isDone}
+          checked={TodoInteractor.isDone(props.todo)}
           onChange={onStatusChanged}
         />
       </div>
@@ -52,7 +50,7 @@ export default function TodoItem(props: TodoItemProps) {
       </div>
       <ul className="todo-item__actions">
         <li className="todo-item__action">
-          <button onClick={onCancelClicked}>{todoInteractor.isCancelled ? 'Activate' : 'Cancel'}</button>
+          <button onClick={onCancelClicked}>{TodoInteractor.isCancelled(props.todo) ? 'Activate' : 'Cancel'}</button>
         </li>
         <li className="todo-item__action">
           <button onClick={onRemoveClicked}>Remove</button>
