@@ -3,6 +3,7 @@ import './index.css';
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
+import TodoCounter from '../../features/todos/components/TodoCounter';
 import TodoForm from '../../features/todos/components/TodoForm';
 import TodoList from '../../features/todos/components/TodoList';
 
@@ -14,6 +15,7 @@ function App() {
           <div className="app__logo">Todos</div>
         </header>
         <main className="app__main">
+          <TodoCounter />
           <TodoList />
           <TodoForm />
         </main>

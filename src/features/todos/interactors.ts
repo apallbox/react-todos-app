@@ -16,18 +16,22 @@ export class TodoInteractor<T extends Todo> {
   }
 
   toggleDone() {
-    this.isDone ? this.markNew() : this.markDone();
+    TodoInteractor.isDone(this.todo) ? this.markNew() : this.markDone();
   }
 
-  get isNew() {
-    return this.todo.status === TodoStatus.New;
+  toggleCancelled() {
+    TodoInteractor.isCancelled(this.todo) ? this.markNew() : this.markCancelled();
   }
 
-  get isDone() {
-    return this.todo.status === TodoStatus.Done;
+  static isNew<T extends Todo>(todo: T): boolean {
+    return todo.status === TodoStatus.New;
   }
 
-  get isCancelled() {
-    return this.todo.status === TodoStatus.Cancelled;
+  static isDone<T extends Todo>(todo: T): boolean {
+    return todo.status === TodoStatus.Done;
+  }
+
+  static isCancelled<T extends Todo>(todo: T): boolean {
+    return todo.status === TodoStatus.Cancelled;
   }
 }
