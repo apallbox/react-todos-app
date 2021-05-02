@@ -11,7 +11,7 @@ export default function TodoCounter() {
 
   return (
     <div className="todo-counter">
-      Todos active: {activeTodos.length} / {existingTodos.length};
+      Remaining todos: {activeTodos.length} / {existingTodos.length};
     </div>
   );
 }
