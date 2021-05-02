@@ -62,7 +62,9 @@ const config = {
       filename: 'index.html',
     }),
     new LodashModuleReplacementPlugin,
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+    }),
     new CleanWebpackPlugin()
   ],
   resolve: {
