@@ -1,5 +1,7 @@
 # react-todos-app
 
+![](/docs/coverage/badges/badge-lines.svg)
+
 WIP
 
 Latest release preview: https://apallbox.github.io/react-todos-app/

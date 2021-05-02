@@ -2,11 +2,11 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",
-    "!**/node_modules/**",
-    "!**/vendor/**",
+    'src/**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/vendor/**',
   ],
   coverageReporters: [
-    'text-summary',
+    'json-summary',
   ],
 };
