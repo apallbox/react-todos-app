@@ -12,4 +12,14 @@
     flex-shrink: 0;
     white-space: pre-wrap;
   }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__action {
+
+  }
 }

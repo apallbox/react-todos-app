@@ -3,7 +3,7 @@ import './index.css';
 import React, { ChangeEvent, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { Todo, TodoStatus } from '../../entities';
-import { todoRemoved, todoToggledDone, todoUpdated } from '../../todosSlice';
+import { todoMarkedCancelled, todoRemoved, todoToggledDone, todoUpdated } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
 
 interface TodoItemProps {
@@ -26,6 +26,10 @@ export default function TodoItem(props: TodoItemProps) {
     dispatch(todoRemoved(props.todo.id));
   };
 
+  const onCancelClicked = (event: MouseEvent) => {
+    dispatch(todoMarkedCancelled(props.todo.id));
+  };
+
   return (
     <div className="todo-item">
       <div className="todo-item__status">
@@ -42,6 +46,9 @@ export default function TodoItem(props: TodoItemProps) {
         </label>
       </div>
       <ul className="todo-item__actions">
+        <li className="todo-item__action">
+          <button onClick={onCancelClicked}>Cancel</button>
+        </li>
         <li className="todo-item__action">
           <button onClick={onRemoveClicked}>Remove</button>
         </li>
