@@ -3,6 +3,14 @@
   align-items: flex-start;
   gap: 10px;
 
+  &--cancelled {
+    opacity: 0.25;
+
+    & .todo-item__text {
+      text-decoration: line-through;
+    }
+  }
+
   &__status {
     flex-grow: 0;
   }
@@ -11,5 +19,15 @@
     flex-grow: 1;
     flex-shrink: 0;
     white-space: pre-wrap;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__action {
+
   }
 }

@@ -2,8 +2,10 @@ import './index.css';
 
 import React, { ChangeEvent, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { Todo, TodoStatus } from '../../entities';
-import { todoRemoved, todoToggledDone, todoUpdated } from '../../todosSlice';
+import classNames from 'classnames';
+
+import { Todo } from '../../entities';
+import { todoRemoved, todoToggledCancelled, todoToggledDone } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
 
 interface TodoItemProps {
@@ -26,8 +28,15 @@ export default function TodoItem(props: TodoItemProps) {
     dispatch(todoRemoved(props.todo.id));
   };
 
+  const onCancelClicked = (event: MouseEvent) => {
+    dispatch(todoToggledCancelled(props.todo.id));
+  };
+
   return (
-    <div className="todo-item">
+    <div className={classNames({
+      'todo-item': true,
+      'todo-item--cancelled': todoInteractor.isCancelled,
+    })}>
       <div className="todo-item__status">
         <input
           id={props.todo.id}
@@ -42,6 +51,9 @@ export default function TodoItem(props: TodoItemProps) {
         </label>
       </div>
       <ul className="todo-item__actions">
+        <li className="todo-item__action">
+          <button onClick={onCancelClicked}>{todoInteractor.isCancelled ? 'Activate' : 'Cancel'}</button>
+        </li>
         <li className="todo-item__action">
           <button onClick={onRemoveClicked}>Remove</button>
         </li>

@@ -77,6 +77,15 @@ const todosSlice = createSlice({
       const interactor = new TodoInteractor(existingTodo);
       interactor.toggleDone();
     },
+    todoToggledCancelled(state, action: PayloadAction<string>) {
+      const id = action.payload;
+      const existingTodo = state.find((todo) => todo.id === id);
+
+      if (!existingTodo) { return; }
+
+      const interactor = new TodoInteractor(existingTodo);
+      interactor.toggleCancelled();
+    },
   },
 });
 
@@ -88,6 +97,7 @@ export const {
   todoMarkedDone,
   todoMarkedCancelled,
   todoToggledDone,
+  todoToggledCancelled,
 } = todosSlice.actions;
 
 export default todosSlice.reducer;
