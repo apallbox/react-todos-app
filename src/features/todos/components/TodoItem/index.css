@@ -6,7 +6,7 @@
   &--cancelled {
     opacity: 0.25;
 
-    &__text {
+    & .todo-item__text {
       text-decoration: line-through;
     }
   }
