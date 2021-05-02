@@ -4,8 +4,8 @@ import React, { ChangeEvent, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
-import { Todo, TodoStatus } from '../../entities';
-import { todoMarkedCancelled, todoRemoved, todoToggledCancelled, todoToggledDone, todoUpdated } from '../../todosSlice';
+import { Todo } from '../../entities';
+import { todoRemoved, todoToggledCancelled, todoToggledDone } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
 
 interface TodoItemProps {
