@@ -2,6 +2,8 @@ import './index.css';
 
 import React, { ChangeEvent, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
+
 import { Todo, TodoStatus } from '../../entities';
 import { todoMarkedCancelled, todoRemoved, todoToggledDone, todoUpdated } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
@@ -31,7 +33,10 @@ export default function TodoItem(props: TodoItemProps) {
   };
 
   return (
-    <div className="todo-item">
+    <div className={classNames({
+      'todo-item': true,
+      'todo-item--cancelled': todoInteractor.isCancelled,
+    })}>
       <div className="todo-item__status">
         <input
           id={props.todo.id}

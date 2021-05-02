@@ -3,6 +3,14 @@
   align-items: flex-start;
   gap: 10px;
 
+  &--cancelled {
+    opacity: 0.25;
+
+    &__text {
+      text-decoration: line-through;
+    }
+  }
+
   &__status {
     flex-grow: 0;
   }
