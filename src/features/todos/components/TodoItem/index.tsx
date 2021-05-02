@@ -1,9 +1,9 @@
 import './index.css';
 
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { Todo, TodoStatus } from '../../entities';
-import { todoToggledDone, todoUpdated } from '../../todosSlice';
+import { todoRemoved, todoToggledDone, todoUpdated } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
 
 interface TodoItemProps {
@@ -17,6 +17,13 @@ export default function TodoItem(props: TodoItemProps) {
 
   const onStatusChanged = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(todoToggledDone(props.todo.id));
+  };
+
+  const onRemoveClicked = (event: MouseEvent) => {
+    if (!confirm(`Item "${props.todo.text}" will be removed. Are you sure?`)) {
+      return;
+    }
+    dispatch(todoRemoved(props.todo.id));
   };
 
   return (
@@ -34,6 +41,11 @@ export default function TodoItem(props: TodoItemProps) {
           {props.todo.text}
         </label>
       </div>
+      <ul className="todo-item__actions">
+        <li className="todo-item__action">
+          <button onClick={onRemoveClicked}>Remove</button>
+        </li>
+      </ul>
     </div>
   );
 }
