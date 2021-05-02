@@ -19,6 +19,10 @@ export class TodoInteractor<T extends Todo> {
     this.isDone ? this.markNew() : this.markDone();
   }
 
+  toggleCancelled() {
+    this.isCancelled ? this.markNew() : this.markCancelled();
+  }
+
   get isNew() {
     return this.todo.status === TodoStatus.New;
   }

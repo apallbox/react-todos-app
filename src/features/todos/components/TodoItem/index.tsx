@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 import { Todo, TodoStatus } from '../../entities';
-import { todoMarkedCancelled, todoRemoved, todoToggledDone, todoUpdated } from '../../todosSlice';
+import { todoMarkedCancelled, todoRemoved, todoToggledCancelled, todoToggledDone, todoUpdated } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
 
 interface TodoItemProps {
@@ -29,7 +29,7 @@ export default function TodoItem(props: TodoItemProps) {
   };
 
   const onCancelClicked = (event: MouseEvent) => {
-    dispatch(todoMarkedCancelled(props.todo.id));
+    dispatch(todoToggledCancelled(props.todo.id));
   };
 
   return (
@@ -52,7 +52,7 @@ export default function TodoItem(props: TodoItemProps) {
       </div>
       <ul className="todo-item__actions">
         <li className="todo-item__action">
-          <button onClick={onCancelClicked}>Cancel</button>
+          <button onClick={onCancelClicked}>{todoInteractor.isCancelled ? 'Activate' : 'Cancel'}</button>
         </li>
         <li className="todo-item__action">
           <button onClick={onRemoveClicked}>Remove</button>
