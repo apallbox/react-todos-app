@@ -8,11 +8,11 @@ import { Todo } from '../../entities';
 import { todoRemoved, todoToggledCancelled, todoToggledDone } from '../../todosSlice';
 import { TodoInteractor } from '../../interactors';
 
-interface TodoItemProps {
+export interface TodoItemProps {
   todo: Todo;
 }
 
-export default function TodoItem(props: TodoItemProps) {
+export function TodoItem(props: TodoItemProps) {
   const dispatch = useDispatch();
 
   const onStatusChanged = (event: ChangeEvent<HTMLInputElement>) => {
