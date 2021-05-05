@@ -2,7 +2,10 @@
 /dist/
 
 .cache/
+
 /coverage/
+!/coverage/badges/
+
 /node_modules/
 
 *.log

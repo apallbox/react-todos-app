@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { todoAdded } from '../../todosSlice';
 
-export default function TodoForm() {
+export function TodoForm() {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
 
