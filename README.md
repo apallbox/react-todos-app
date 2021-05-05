@@ -1,6 +1,6 @@
 # react-todos-app
 
-![](/docs/coverage/badges/badge-lines.svg)
+![](/coverage/badges/badge-lines.svg)
 
 WIP
 
